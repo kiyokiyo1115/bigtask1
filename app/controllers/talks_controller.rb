@@ -50,7 +50,8 @@ class TalksController < ApplicationController
     render :new if @talk.invalid?
   end
 
-private
+  private
+
   def talk_params
     params.require(:talk).permit(:content)
   end
@@ -58,5 +59,4 @@ private
   def set_talk
     @talk = Talk.find(params[:id])
   end
-
 end
