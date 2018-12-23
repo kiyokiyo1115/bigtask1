@@ -1,2 +1,23 @@
-<h1>Talks#index</h1>
-<p>Find me in app/views/talks/index.html.erb</p>
+<h1>つぶやき一覧</h1>
+<p>今日食べたものをつぶやこう！</p>
+
+<p><%= notice %></p>
+
+
+<table class="tbl"> 
+<tr>
+    <th>内容</th>
+</tr>
+  <% @talks.each do |talk| %>
+      <tr class="content">
+        <th><%= talk.content %></th>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to '詳細を確認する', talk_path(talk.id) %></td>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to "編集する", edit_talk_path(talk.id), data: { confirm: '本当に編集していいですか？' } %></td>
+          <td class="col-xs-1 col-md-2 edit_link"><%= link_to '削除する', talk_path(talk.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
+      </tr>
+      </div>  
+  <% end %>
+</table>
+<div class="btn">
+  <%= link_to '新しくつぶやく', new_talk_path %>
+</div>
