@@ -16,7 +16,7 @@ class TalksController < ApplicationController
   def create
     @talk = Talk.new(talk_params)
     if @talk.save
-      redirect_to talks_path, notice: "トークを作成しました！"
+      redirect_to talks_path, notice: "つぶやきました！"
     else
       render 'new'
     end 
